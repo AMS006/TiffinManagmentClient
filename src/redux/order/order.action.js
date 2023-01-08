@@ -5,7 +5,7 @@ export const getAllOrders = () => async(dispatch) =>{
         dispatch(orderRequest())
         const orders = await axios({
             method:"GET",
-            url:`http://localhost:4000/api/v1/order/provider`
+            url:`https://tiffinwala.onrender.com/order/provider`
         })
         dispatch(orderSuccess(orders.data))
     }catch(error){
@@ -17,7 +17,7 @@ export const getUserOrders = () => async(dispatch) =>{
         dispatch(orderRequest())
         const orders = await axios({
             method:"GET",
-            url:"http://localhost:4000/api/v1/order/user"
+            url:"https://tiffinwala.onrender.com/order/user"
         })
         console.log(orders.data)
         return dispatch(userOrderSuccess(orders.data));
@@ -30,7 +30,7 @@ export const addOrder = (data) => async(dispatch)=>{
         dispatch(orderRequest())
         const order = await axios({
             method:"POST",
-            url:`http://localhost:4000/api/v1/order`,
+            url:`https://tiffinwala.onrender.com/order`,
             data
         })
         console.log(order)
@@ -44,7 +44,7 @@ export const updateOrder = (data) => async(dispatch)=>{
         dispatch(orderRequest())
         const order = await axios({
             method:"POST",
-            url:`http://localhost:4000/api/v1/order/updateStatus`,
+            url:`https://tiffinwala.onrender.com/order/updateStatus`,
             data
         })
         console.log(order)
@@ -58,7 +58,7 @@ export const updateUserOrder = (data) => async(dispatch)=>{
         dispatch(orderRequest())
         const order = await axios({
             method:"POST",
-            url:`http://localhost:4000/api/v1/order/updateStatus`,
+            url:`https://tiffinwala.onrender.com/order/updateStatus`,
             data
         })
         console.log(order)
@@ -72,7 +72,7 @@ export const deleteOrder = (data) => async(dispatch) =>{
         dispatch(orderRequest())
         const order = await axios({
             method:"DELETE",
-            url:`http://localhost:4000/api/v1/order/${data.order._id}`
+            url:`https://tiffinwala.onrender.com/order/${data.order._id}`
         })
     } catch (error) {
         return dispatch(orderFail(error.response.data.message));

@@ -7,14 +7,14 @@ import {GrSecure} from 'react-icons/gr'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../redux/user/user.action'
-import { useAlert } from 'react-alert'
+
 function SignInPage() {
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user)
-  const alert = useAlert()
+
   const handleSubmit = (e) =>{
     e.preventDefault();
     dispatch(login({email,password}));
@@ -25,7 +25,7 @@ function SignInPage() {
     if(user && user.user){
       navigate('/')
     }else if(user && user.error){
-      alert.show(user.error)
+
     }
   },[user])
 
