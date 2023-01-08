@@ -7,7 +7,7 @@ export const loginProvider = (provider) => async(dispatch) =>{
         const config = { headers: { "Content-Type": "application/json" } };
         const providerData = await axios({
             method:"POST",
-            url:"https://tiffinwala.onrender.com/provider/login",
+            url:"https://tiffinwala.onrender.com/api/v1/provider/login",
             data: provider,
             config
         })
@@ -22,7 +22,7 @@ export const providerRegister = (provider) => async(dispatch) =>{
         dispatch(providerRequest());
         const providerData = await axios({
             method:"POST",
-            url:"https://tiffinwala.onrender.com/provider/register",
+            url:"https://tiffinwala.onrender.com/api/v1/provider/register",
             data: provider
         })
         return dispatch(providerRegistrationSuccess())
@@ -36,7 +36,7 @@ export const providerlogout = () => async(dispatch) =>{
         dispatch(providerRequest());
         await axios({
             method:"GET",
-            url:"https://tiffinwala.onrender.com/provider/logout",
+            url:"https://tiffinwala.onrender.com/api/v1/provider/logout",
         })
         return dispatch(providerLogout())
     }catch (error) {
@@ -48,7 +48,7 @@ export const getAllProviders = () => async(dispatch) =>{
         dispatch(providerRequest());
         const providerData = await axios({
             method:"GET",
-            url:"https://tiffinwala.onrender.com/provider",
+            url:"https://tiffinwala.onrender.com/api/v1/provider",
         })
         return dispatch(allProvidersSuccess(providerData.data))
     }catch (error) {
@@ -60,7 +60,7 @@ export const getProviderById = (id) => async(dispatch) =>{
         dispatch(providerRequest())
         const provider = await axios({
             method:"GET",
-            url:`https://tiffinwala.onrender.com/provider/${id}`
+            url:`https://tiffinwala.onrender.com/api/v1/provider/${id}`
         })
         dispatch(singleProviderSuccess(provider.data))
     } catch (error) {
@@ -72,7 +72,7 @@ export const getProviderDetails = () => async(dispatch) =>{
         dispatch(providerRequest());
         const providerData = await axios({
             method:"GET",
-            url:"https://tiffinwala.onrender.com/provider/me",
+            url:"https://tiffinwala.onrender.com/api/v1/provider/me",
         })
         return dispatch(providerSuccess(providerData.data))
     }catch (error) {

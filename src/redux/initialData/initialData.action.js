@@ -6,7 +6,7 @@ export const getInitialData = async(dispatch) =>{
         dispatch(initialDataRequest());
         const data = await axios({
             method:"GET",
-            url:"https://tiffinwala.onrender.com/initialData"
+            url:"https://tiffinwala.onrender.com/api/v1/initialData"
         })
         dispatch(initialDataSuccess(data.data))
     } catch (error) {

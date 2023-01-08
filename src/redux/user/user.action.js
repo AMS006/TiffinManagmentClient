@@ -7,7 +7,7 @@ export const login = (user) => async(dispatch) =>{
         const config = { headers: { "Content-Type": "application/json" } };
         const userData = await axios({
             method:"POST",
-            url:"https://tiffinwala.onrender.com/user/login",
+            url:"https://tiffinwala.onrender.com/api/v1/user/login",
             data: user,
             config
         })
@@ -22,7 +22,7 @@ export const signUp = (user) => async(dispatch) =>{
         const config = { headers: { "Content-Type": "application/json" } };
         const userData = await axios({
             method:"POST",
-            url:"https://tiffinwala.onrender.com/user/signup",
+            url:"https://tiffinwala.onrender.com/api/v1/user/signup",
             data: user,
             config
         })
@@ -38,7 +38,7 @@ export const logout = () => async(dispatch) =>{
         const config = { headers: { "Content-Type": "application/json" } };
         await axios({
             method:"GET",
-            url:"https://tiffinwala.onrender.com/user/logout",
+            url:"https://tiffinwala.onrender.com/api/v1/user/logout",
             config
         })
         return dispatch(userLogout())
@@ -51,7 +51,7 @@ export const getUserDetails = () => async(dispatch) =>{
         dispatch(userRequest());
         const userData = await axios({
             method:"GET",
-            url:"https://tiffinwala.onrender.com/user/me",
+            url:"https://tiffinwala.onrender.com/api/v1/user/me",
         })
         return dispatch(userSuccess(userData.data))
     }catch (error) {
