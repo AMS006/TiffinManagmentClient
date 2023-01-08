@@ -8,7 +8,7 @@ import {FiUser,FiPhone} from 'react-icons/fi'
 import { useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { providerRegister } from '../redux/provider/provider.action'
-import { useAlert } from 'react-alert'
+
 import { providerRequest } from '../redux/provider/provider.reducer'
 function ProviderRegistration() {
   const [name,setName] = useState("")
@@ -20,7 +20,6 @@ function ProviderRegistration() {
   const [providerLogo,setProviderLogo] = useState("")
   const [address,setAddress] = useState("");
   const dispatch = useDispatch();
-  const alert = useAlert()
   const handleSubmit = (e) =>{
     e.preventDefault();
     if(password !== confirmPassword){
@@ -50,7 +49,6 @@ function ProviderRegistration() {
   const navigate = useNavigate()
   useEffect(()=>{
     if(provider && provider.error){
-      alert.show(provider.error)
       dispatch(providerRequest())
     }else if(provider && provider.providerRegister){
       window.alert("Thank You for Registring with Us, You will be notified after we verify You")
