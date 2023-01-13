@@ -34,7 +34,7 @@ function SignInPage() {
     <div>
       <div className='py-2 sm:px-8 px-2 shadow flex justify-between items-center'>
         <Link to='/'>
-          <h1 className='text-2xl font-semibold'>Name</h1>
+          <h1 className='text-2xl font-semibold font-serif'>Tiffin Wala</h1>
         </Link>
         <Link to="/" className='flex items-center gap-2'>
             <BiArrowBack />

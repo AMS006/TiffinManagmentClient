@@ -36,9 +36,9 @@ function NavbarSm({name}){
   }
   return(
     <>
-      <div className='flex md:hidden px-4 py-2 shadow justify-between '>
+      <div className='flex md:hidden px-4 py-2 shadow justify-between -mt-5'>
             <Link to="/">
-              <h1 className='font-bold text-xl'>Name</h1>
+              <h1 className='font-bold text-xl'>Tiffin Wala</h1>
             </Link>
             <div className='flex items-center gap-3'>
               {name && <ProfileAvatar name={name}/>}
