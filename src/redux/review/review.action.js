@@ -6,7 +6,7 @@ export const addReview = (data) => async(dispatch)=>{
         dispatch(reviewRequest())
         const review = await axios({
             method:"POST",
-            url:"https://tiffinwala.onrender.com/api/v1/review",
+            url:"https://vivacious-tuna-gloves.cyclic.app/api/v1/review",
             data
         })
         dispatch(addReviewSuccess(review.data))
@@ -19,7 +19,7 @@ export const getAllReview = () => async(dispatch)=>{
         dispatch(reviewRequest())
         const review = await axios({
             method:"GET",
-            url:`https://tiffinwala.onrender.com/api/v1/review`,
+            url:`https://vivacious-tuna-gloves.cyclic.app/api/v1/review`,
         })
         dispatch(allReviewSuccess(review.data))
     } catch (error) {
@@ -32,7 +32,7 @@ export const getProvidersReview = (_id) => async(dispatch)=>{
         console.log(_id)
         const review = await axios({
             method:"GET",
-            url:`https://tiffinwala.onrender.com/api/v1/review/${_id}`,
+            url:`https://vivacious-tuna-gloves.cyclic.app/api/v1/review/${_id}`,
         })
         console.log(review.data)
         dispatch(reviewSuccess(review.data))
