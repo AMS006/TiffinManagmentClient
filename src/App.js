@@ -7,7 +7,6 @@ import SignUpPage from './pages/SignUpPage';
 import AllProvidersPage from './pages/AllProviders.page';
 import ProviderPage from './pages/Provider.page';
 import ContactUs from './pages/ContactUsPage';
-import Aboutus from './pages/AboutUspage';
 import MealPage from './pages/Meal.page';
 import { useDispatch,useSelector } from 'react-redux';
 import { getAllProviders, getProviderDetails } from './redux/provider/provider.action';
@@ -49,7 +48,6 @@ function App() {
         <Route path="/provider" element={<AllProvidersPage />} />
         <Route path='/food/:_id' element={<MealPage />} />
         <Route path="/contactus" element={<ContactUs/>}></Route>
-        <Route path="/aboutus" element={<Aboutus/>}></Route>
         <Route path="/orders" element={<OrdersPage />} />
         <Route path="/providers" element={<AllProvidersPage />} />
         <Route path='/provider/:_id' element={<ProviderPage />} />

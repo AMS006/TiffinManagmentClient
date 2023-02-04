@@ -39,8 +39,7 @@ function SignUpPage() {
       navigate("/");
     }
   }
-  document.body.onkeydown = function(e) {
-    
+  document.body.onkeydown = function(e){  
     if (e.key === "Enter")
         handleSubmit();
   };

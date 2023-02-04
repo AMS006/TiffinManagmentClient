@@ -25,11 +25,10 @@ function SignInPage() {
     if(user && user.user){
       navigate('/')
     }else if(user && user.error){
-
+      alert("Invalid Credentials")
     }
   },[user])
 
-  
   return (
     <div>
       <div className='py-2 sm:px-8 px-2 shadow flex justify-between items-center'>

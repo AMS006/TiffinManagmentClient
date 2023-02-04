@@ -6,9 +6,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import TestimonialCard from './TestimonialCard';
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+
 function Testimonials() {
     const [slidesData,setSlidesData] = useState("")
     const reviews = useSelector((state) => state.reviews.reviews)
@@ -17,6 +18,11 @@ function Testimonials() {
       if(reviews)
         setSlidesData(reviews)
     },[reviews])
+    if(!reviews || reviews.length==0){
+      return(
+        <></>
+      )
+    }
   return (
     <div className=' my-4'>
         <h1 className='font-bold md:text-2xl text-xl text-center py-7'>Testimonials</h1>

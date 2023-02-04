@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link}  from 'react-router-dom'
 function MealBox({foods}) {
-    if(foods.length === 0){
+    if(!foods || foods.length === 0){
         return(
             <div className='flex items-center justify-center h-32 w-full'>
                 <p className='font-semibold text-gray-500'>No Meals Found</p>
