@@ -7,7 +7,7 @@ export const loginProvider = (provider) => async(dispatch) =>{
         const config = { headers: { "Content-Type": "application/json" } };
         const providerData = await axios({
             method:"POST",
-            url:"http://localhost:4000/api/v1/provider/login",
+            url:"https://vivacious-tuna-gloves.cyclic.app/api/v1/provider/login",
             data: provider,
             config
         })
@@ -17,7 +17,6 @@ export const loginProvider = (provider) => async(dispatch) =>{
         localStorage.setItem("providerToken",JSON.stringify({providerToken:providerData.data.providerToken}))
         return dispatch(providerSuccess(providerData.data))
     }catch (error) {
-        console.log(error.response)
         return dispatch(providerFail(error.response.data.message));
     }
 }
@@ -26,7 +25,7 @@ export const providerRegister = (provider) => async(dispatch) =>{
         dispatch(providerRequest());
         const providerData = await axios({
             method:"POST",
-            url:"http://localhost:4000/api/v1/provider/register",
+            url:"https://vivacious-tuna-gloves.cyclic.app/api/v1/provider/register",
             data: provider
         })
         axios.defaults.headers.common[
@@ -54,7 +53,7 @@ export const getAllProviders = () => async(dispatch) =>{
         dispatch(providerRequest());
         const providerData = await axios({
             method:"GET",
-            url:"http://localhost:4000/api/v1/provider",
+            url:"https://vivacious-tuna-gloves.cyclic.app/api/v1/provider",
         })
         return dispatch(allProvidersSuccess(providerData.data))
     }catch (error) {
@@ -66,7 +65,7 @@ export const getProviderById = (id) => async(dispatch) =>{
         dispatch(providerRequest())
         const provider = await axios({
             method:"GET",
-            url:`http://localhost:4000/api/v1/provider/${id}`
+            url:`https://vivacious-tuna-gloves.cyclic.app/api/v1/provider/${id}`
         })
         dispatch(singleProviderSuccess(provider.data))
     } catch (error) {
@@ -78,7 +77,7 @@ export const getProviderDetails = () => async(dispatch) =>{
         dispatch(providerRequest());
         const providerData = await axios({
             method:"GET",
-            url:"http://localhost:4000/api/v1/provider/me",
+            url:"https://vivacious-tuna-gloves.cyclic.app/api/v1/provider/me",
         })
         return dispatch(providerSuccess(providerData.data.provider))
     }catch (error) {

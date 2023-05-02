@@ -137,7 +137,6 @@ export default function OrderTable() {
         return date2-date1;
       })
       orders = items
-      console.log(orders)
     }
   },[orders])
   if(orders && orders.length<=0){

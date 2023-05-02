@@ -8,7 +8,6 @@ function ProviderOrders() {
   const dispatch = useDispatch()
   useEffect(()=>{
     if(provider){
-      console.log(provider._id)
       dispatch(getAllOrders(provider._id))
     }
   },[provider])

@@ -21,11 +21,9 @@ const ContactUs = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
           alert("Message sent Successfully!!!")
         },
         (error) => {
-          console.log(error.text);
         }
       );
   };
