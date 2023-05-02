@@ -7,9 +7,7 @@ const initialState = {
     error:""
 }
 const updateOrders = (orders,updatedOrder) =>{
-    // console.log(updatedOrder)
     const newOrders = orders.map((order) => order._id === updatedOrder._id ? updatedOrder : order)
-    console.log(newOrders)
     return newOrders
 }
 

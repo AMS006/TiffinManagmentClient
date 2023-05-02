@@ -19,12 +19,14 @@ function ProviderRegistration() {
   const [passwordMatch,setPasswordMatch] = useState(true)
   const [providerLogo,setProviderLogo] = useState("")
   const [address,setAddress] = useState("");
+  const [isSigning,setIsSigning] = useState("");
   const dispatch = useDispatch();
   const handleSubmit = (e) =>{
     e.preventDefault();
     if(password !== confirmPassword){
       setPasswordMatch(false)
     }else{
+      setIsSigning(true);
       const form = new FormData();
       form.append("name",name);
       form.append("email",email);
@@ -48,11 +50,13 @@ function ProviderRegistration() {
   const provider = useSelector((state) => state.provider)
   const navigate = useNavigate()
   useEffect(()=>{
-    if(provider && provider.error){
+    if(provider.isProvider){
+      setIsSigning(false)
+      navigate('/provider/dashboard');
+    }else if(provider && provider.error){
+      window.alert(provider.error)
+      setIsSigning(false)
       dispatch(providerRequest())
-    }else if(provider && provider.providerRegister){
-      window.alert("Thank You for Registring with Us, You will be notified after we verify You")
-      navigate("/")
     }
   },[provider])
   return (
@@ -101,8 +105,8 @@ function ProviderRegistration() {
                     <label htmlFor="logo" className='font-semibold text-slate-800'>Add Logo</label>
                     <input type="file" name="logo" id="logo" required onChange={(e) => setProviderLogo(e.target.files)}/>
                 </div>
-                <div className='bg-slate-800 text-white py-2 shadow rounded-full'>
-                    <input type="submit" value="Register" className='h-full w-full cursor-pointer' />
+                <div className={`bg-slate-800 text-white py-2 shadow rounded-full ${isSigning?'opacity-70 cursor-not-allowed':''}`}>
+                    <input type="submit" value={`${isSigning?'Signing...':'Register'}`} className={`h-full w-full cursor-pointer ${isSigning?'opacity-70 cursor-not-allowed':''}`} />
                 </div>
                 <div className='text-slate-900 font-semibold text-center'>
                     <Link to="/loginProvider">Already Have Account? Sign In here</Link>

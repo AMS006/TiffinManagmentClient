@@ -28,11 +28,13 @@ const PrivateRoute = ({children }) => {
 function App() {
   const dispatch = useDispatch();
   useEffect(() =>{
-    dispatch(getProviderDetails());
-    dispatch(getUserDetails());
+    if(localStorage.providerToken)
+      dispatch(getProviderDetails())
+    else if(localStorage.userToken)
+      dispatch(getUserDetails())
     dispatch(getAllProviders());
     dispatch(getAllReview())
-  },[dispatch]);
+  },[localStorage,dispatch])
 
   const navigate = useNavigate();
   const provider = useSelector((state) => state.provider)

@@ -18,8 +18,6 @@ export default function ReviewModal({open, setOpen,order}) {
   const dispatch = useDispatch()
   const handleSubmit = (e) =>{
     e.preventDefault()
-    console.log(value,text)
-    console.log(order)
     const data = {
         message:text,
         rating:value,

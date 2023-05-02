@@ -23,7 +23,7 @@ const providerSlice = createSlice({
             
         },
         providerSuccess:(state,action)=>{
-            state.provider = action.payload.provider
+            state.provider = action.payload
             state.loading = false
             state.isProvider = true
         },

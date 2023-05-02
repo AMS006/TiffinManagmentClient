@@ -12,8 +12,8 @@ function Reviews() {
         <div className='md:px-8 px-2'>
             <h1 className='font-semibold py-3 text-xl'>Customers Reviews</h1>
             <div className='flex gap-3 flex-col'>
-                {reviews.map((review) =>(
-                    <div className='border-b py-2'>
+                {reviews.map((review,idx) =>(
+                    <div className='border-b py-2' key={idx}>
                         <div className='flex gap-3 items-center'>
                             <Avatar />
                             <h5 className='font-medium'>{review.user.name}</h5>

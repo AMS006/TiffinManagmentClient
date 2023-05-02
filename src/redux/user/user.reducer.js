@@ -14,7 +14,7 @@ const userSlice = createSlice({
             state.error = ""
         },
         userSuccess:(state,action)=>{
-            state.user = action.payload.user
+            state.user = action.payload
             state.loading = false
             state.error = ""
         },

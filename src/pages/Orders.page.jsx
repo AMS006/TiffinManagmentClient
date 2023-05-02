@@ -54,8 +54,8 @@ function OrdersPage() {
         <TopNavigation breadcrumbs={breadcrumbs} />
         <h1 className='text-2xl font-semibold '>My Orders</h1>
         {orders && orders?.length !==0 ?<div className='flex flex-col gap-4 pt-4 w-full'>
-            {orders.map((order) =>(
-                <div className='md:flex gap-2 border-b py-2'>
+            {orders.map((order,idx) =>(
+                <div className='md:flex gap-2 border-b py-2' key={idx}>
                     <div className='w-32 h-28 overflow-hidden'>
                         <img src={order.food.image} alt="" />
                     </div>

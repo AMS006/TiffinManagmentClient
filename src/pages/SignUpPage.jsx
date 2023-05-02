@@ -5,8 +5,9 @@ import {MdEmail} from 'react-icons/md'
 import {GrSecure} from 'react-icons/gr'
 import {FiUser,FiPhone} from 'react-icons/fi'
 import { useState } from 'react'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { signUp } from '../redux/user/user.action'
+import { useEffect } from 'react'
 function SignUpPage() {
   const [name,setName] = useState("")
   const [email,setEmail] = useState("")
@@ -14,15 +15,19 @@ function SignUpPage() {
   const [confirmPassword,setConfirmPassword] = useState("")
   const [phoneNumber,setPhoneNumber] = useState("")
   const [passwordMatch,setPasswordMatch] = useState(true)
+  const [isSigning,setIsSigning] = useState(false)
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmit = (e) =>{
     e.preventDefault()
+
     if(password !== confirmPassword){
       setPasswordMatch(false)
     }
     else{
+      setIsSigning(true)
       const user = {
         name,
         email,
@@ -36,9 +41,20 @@ function SignUpPage() {
       setConfirmPassword("");
       setPhoneNumber("");
       setPasswordMatch(true);
-      navigate("/");
+
     }
   }
+  const user = useSelector((state) => state.user)
+
+  useEffect(()=>{
+    if(user && user.user){
+      setIsSigning(false)
+      navigate('/')
+    }else if(user && user.error){
+      alert("Invalid Credentials")
+      setIsSigning(false)
+    }
+  },[user])
   document.body.onkeydown = function(e){  
     if (e.key === "Enter")
         handleSubmit();
@@ -81,8 +97,8 @@ function SignUpPage() {
                   </div>
                   {!passwordMatch && <small className='text-red-600'>* Password does not match</small>}
                 </div>
-                <div className='bg-slate-800 text-white py-2 shadow rounded-full'>
-                    <input type="submit" value="SignUp" className='h-full w-full cursor-pointer' />
+                <div className={`bg-slate-800 text-white py-2 shadow rounded-full ${isSigning?'opacity-70 cursor-not-allowed':''}`}>
+                    <input type="submit" value={`${isSigning?'Signing...':'Sign Up'}`} className={`h-full w-full cursor-pointer ${isSigning?'opacity-70 cursor-not-allowed':''}`} />
                 </div>
                 <div className='text-slate-900 font-semibold text-center'>
                     <Link to="/signin">Already Have Account? Sign In here</Link>

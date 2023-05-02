@@ -15,17 +15,22 @@ function SignInPage() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user)
 
+  const [isSigning,setIsSigning] = useState(false)
+
   const handleSubmit = (e) =>{
     e.preventDefault();
+    setIsSigning(true)
     dispatch(login({email,password}));
     setEmail("")
     setPassword("")
   }
   useEffect(()=>{
     if(user && user.user){
+      setIsSigning(false)
       navigate('/')
     }else if(user && user.error){
       alert("Invalid Credentials")
+      setIsSigning(false)
     }
   },[user])
 
@@ -52,8 +57,8 @@ function SignInPage() {
                     <span className='px-2 h-full'><GrSecure /></span>
                     <input type="password" value={password} name="password" placeholder='Enter Your password' className='w-full h-full px-2 py-2 border-l focus:outline-none' id="password" required onChange={(e) => setPassword(e.target.value)}/>
                 </div>
-                <div className='bg-slate-800 text-white py-2 shadow rounded-full'>
-                    <input type="submit" value="SignIn" className='h-full w-full cursor-pointer' />
+                <div className={`bg-slate-800 text-white py-2 shadow rounded-full ${isSigning?'opacity-70 cursor-not-allowed':''}`}>
+                    <input type="submit" value={`${isSigning?'Signing...':'Sign In'}`} className={`h-full w-full cursor-pointer ${isSigning?'opacity-70 cursor-not-allowed':''}`} />
                 </div>
                 <div className='text-slate-900 font-semibold text-center'>
                     <Link to="/signup">Don't Have Account? Sign Up with us</Link>

@@ -12,6 +12,14 @@ import {BrowserRouter} from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 axios.defaults.withCredentials = true
+if(localStorage.providerToken){
+  const {providerToken} = JSON.parse(localStorage.providerToken)
+  axios.defaults.headers.common["Authorization"] = `Bearer ${providerToken}`
+}
+else if(localStorage.userToken){
+  const {userToken} = JSON.parse(localStorage.userToken)
+  axios.defaults.headers.common["Authorization"] = `Bearer ${userToken}`
+}
 root.render(
     <Provider store={store}>
         <BrowserRouter>

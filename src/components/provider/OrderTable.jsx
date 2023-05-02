@@ -159,8 +159,8 @@ export default function OrderTable() {
                 <StyledTableCell align='center'>User Name</StyledTableCell>
                 <StyledTableCell align='center'>Food Name</StyledTableCell>
                 <StyledTableCell align='center'>Quantity</StyledTableCell>
-                <StyledTableCell align='centeer'>TotalPrice</StyledTableCell>
-                <StyledTableCell align='centeer'>Address</StyledTableCell>
+                <StyledTableCell align='center'>TotalPrice</StyledTableCell>
+                <StyledTableCell align='center'>Address</StyledTableCell>
                 <StyledTableCell align='center'>PaymentStatus</StyledTableCell>
                 <StyledTableCell align='center'>OrderStatus</StyledTableCell>
                 </TableRow>
