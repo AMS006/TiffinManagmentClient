@@ -32,7 +32,7 @@ function NavbarSm({ name }) {
   }
   return (
     <>
-      <div className='flex md:hidden px-4 py-2 shadow justify-between -mt-5'>
+      <div className='flex md:hidden px-4 py-2 shadow justify-between'>
         <Link to="/" className='flex items-center'>
           <img src="./TiffinWalaLogo.png" className='h-8 object-contain' alt="" />
           <h1 className='font-bold text-xl font-mono'>Tiffin Wala</h1>
