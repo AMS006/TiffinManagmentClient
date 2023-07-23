@@ -22,14 +22,7 @@ function NavbarLg({ name }) {
   )
 }
 function NavbarSm({ name }) {
-  const [open, setOpen] = useState(false);
-  window.onresize = function () {
-    if (window.innerWidth > 767)
-      setOpen(false);
-  }
-  const handleOpen = () => {
-    setOpen(!open)
-  }
+ 
   return (
     <>
       <div className='flex md:hidden px-4 py-2 shadow justify-between'>
@@ -38,18 +31,9 @@ function NavbarSm({ name }) {
           <h1 className='font-bold text-xl font-mono'>Tiffin Wala</h1>
         </Link>
         <div className='flex items-center gap-3'>
-          {name && <ProfileAvatar name={name} />}
-          <div onClick={handleOpen} className='cursor-pointer'>
-            <span className='' style={{ fontSize: '1.6rem' }}>
-              <FaBars />
-            </span>
-          </div>
+        {name ? <ProfileAvatar name={name} /> : <NavbarMenu />}
         </div>
       </div>
-      <ul className={`gap-3 flex flex-col items-center absolute z-10 font-semibold h-64 transition ease-in-out duration-500  py-3 w-full ${open ? 'translate-x-0' : '-translate-x-full'}`} style={{ backgroundColor: '#eef2f2' }}>
-        <li><Link to="/providers">Tiffin Providers</Link></li>
-        {name ? <ProfileAvatar name={name} /> : <NavbarMenu />}
-      </ul>
     </>
   )
 }
