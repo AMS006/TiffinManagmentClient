@@ -1,6 +1,6 @@
+import AOS from 'aos'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import AOS from 'aos'
 function Info() {
   AOS.init()
   const navigate = useNavigate();

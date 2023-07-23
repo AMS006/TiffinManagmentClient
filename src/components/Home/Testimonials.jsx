@@ -1,14 +1,11 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
+import { useSelector } from 'react-redux';
+import { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import TestimonialCard from './TestimonialCard';
-import { Autoplay, Navigation } from "swiper";
-import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 
 function Testimonials() {
     const [slidesData,setSlidesData] = useState("")
@@ -18,7 +15,7 @@ function Testimonials() {
       if(reviews)
         setSlidesData(reviews)
     },[reviews])
-    if(!reviews || reviews.length==0){
+    if(!reviews || reviews.length===0){
       return(
         <></>
       )
