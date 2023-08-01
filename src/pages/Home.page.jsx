@@ -26,8 +26,8 @@ function HomePage() {
     <div>
       <HeroSlider />
       <FoodCarousel />
-      <ChooseUs />
       <Order />
+      <ChooseUs />
       <Testimonials />
       <Info />
     </div>
