@@ -5,6 +5,8 @@ import HeroSlider from '../components/Home/HeroSlider'
 import Info from '../components/Home/Info'
 import Testimonials from '../components/Home/Testimonials'
 import HomeLayout from '../layouts/Home.layout'
+import FoodCarousel from '../components/Home/FoodCarousel'
+import Order from '../components/Home/Order'
 
 function HomePage() {
   const [active, setActive] = useState(false);
@@ -23,7 +25,9 @@ function HomePage() {
   return (
     <div>
       <HeroSlider />
+      <FoodCarousel />
       <ChooseUs />
+      <Order />
       <Testimonials />
       <Info />
     </div>

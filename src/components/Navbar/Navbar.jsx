@@ -40,10 +40,10 @@ function NavbarSm({ name }) {
 function Navbar() {
   const user = useSelector((state) => state.user.user);
   return (
-    <>
+    <nav>
       <NavbarLg name={user?.name} />
       <NavbarSm name={user?.name} />
-    </>
+    </nav>
   )
 }
 
