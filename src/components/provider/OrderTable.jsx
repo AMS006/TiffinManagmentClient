@@ -164,13 +164,13 @@ export default function OrderTable() {
                   <StyledTableCell align='center'>
                     {index + 1}
                   </StyledTableCell>
-                  <StyledTableCell align='center'>{order.date}</StyledTableCell>
-                  <StyledTableCell align='center'>{order.user.name}</StyledTableCell>
-                  <StyledTableCell align='center'>{order.food.name}</StyledTableCell>
-                  <StyledTableCell align='center'>{order.quantity}</StyledTableCell>
-                  <StyledTableCell align='center'>₹{order.totalAmount}</StyledTableCell>
-                  <StyledTableCell align='center'>{order.address}</StyledTableCell>
-                  <StyledTableCell align='center'>{order.paymentStatus}</StyledTableCell>
+                  <StyledTableCell align='center'>{order?.date}</StyledTableCell>
+                  <StyledTableCell align='center'>{order?.user?.name}</StyledTableCell>
+                  <StyledTableCell align='center'>{!order?.food?'Food Deleted':order.food.name}</StyledTableCell>
+                  <StyledTableCell align='center'>{order?.quantity}</StyledTableCell>
+                  <StyledTableCell align='center'>₹{order?.totalAmount}</StyledTableCell>
+                  <StyledTableCell align='center'>{order?.address}</StyledTableCell>
+                  <StyledTableCell align='center'>{order?.paymentStatus}</StyledTableCell>
                   <StyledTableCell align='center'>
                     <div className='flex items-center gap-2'>
                       <span>{order.orderStatus}</span>
