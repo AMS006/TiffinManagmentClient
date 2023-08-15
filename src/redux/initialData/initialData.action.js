@@ -10,7 +10,7 @@ export const getInitialData = async (dispatch) => {
     dispatch(initialDataRequest());
     const data = await axios({
       method: "GET",
-      url: "http://localhost:4000/api/v1/initialData",
+      url: "https://vivacious-tuna-gloves.cyclic.app/api/v1/initialData",
     });
     dispatch(initialDataSuccess(data.data));
   } catch (error) {
