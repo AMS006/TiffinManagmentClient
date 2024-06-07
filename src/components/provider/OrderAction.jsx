@@ -16,18 +16,14 @@ const ITEM_HEIGHT = 48;
 export default function OrderActionMenu({ order }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const [status, setStatus] = useState("")
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    if (order)
-      dispatch(updateOrder({ _id: order._id, status, user: order.user, provider: order.provider, food: order.food }))
-  }, [status])
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
   };
   const handleChange = (option) => {
-    setStatus(option)
+    dispatch(updateOrder({ _id: order._id, status:option, user: order.user, provider: order.provider, food: order.food }))
     handleClose();
   }
   const handleClose = () => {
