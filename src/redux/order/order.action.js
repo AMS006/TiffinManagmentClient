@@ -63,7 +63,7 @@ export const updateUserOrder = (data) => async (dispatch) => {
   try {
     dispatch(orderRequest());
     const order = await axios({
-      method: "POST",
+      method: "PUT",
       url: `https://tiffin-managment.onrender.com/api/v1/order/updateStatus`,
       data,
     });
